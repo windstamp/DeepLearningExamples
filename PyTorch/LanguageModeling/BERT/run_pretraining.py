@@ -388,9 +388,9 @@ def prepare_model_and_optimizer(args, device):
     if args.fp16:
 
         if args.loss_scale == 0:
-            model, optimizer = amp.initialize(model, optimizer, opt_level="O2", loss_scale="dynamic", cast_model_outputs=torch.float16)
+            model, optimizer = amp.initialize(model, optimizer, opt_level="O1", loss_scale="dynamic", cast_model_outputs=torch.float16)
         else:
-            model, optimizer = amp.initialize(model, optimizer, opt_level="O2", loss_scale=args.loss_scale, cast_model_outputs=torch.float16)
+            model, optimizer = amp.initialize(model, optimizer, opt_level="O1", loss_scale=args.loss_scale, cast_model_outputs=torch.float16)
         amp._amp_state.loss_scalers[0]._loss_scale = args.init_loss_scale
 
     model.checkpoint_activations(args.checkpoint_activations)
