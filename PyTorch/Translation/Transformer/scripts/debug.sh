@@ -1,4 +1,4 @@
-export CUDA_VISIBLE_DEVICES=1
+export CUDA_VISIBLE_DEVICES=7
 
 RESULTS_DIR='/results'
 CHECKPOINTS_DIR='/results/checkpoints'
@@ -22,9 +22,7 @@ python /workspace/translation/train.py \
     --weight-decay 0.0 \
     --criterion label_smoothed_cross_entropy \
     --label-smoothing 0.1 \
-    --max-tokens 5120 \
+    --max-tokens 2560 \
     --seed 1 \
     --fuse-layer-norm \
-    --amp \
-    --amp-level O2 \
     --save-dir ./checkpoints
