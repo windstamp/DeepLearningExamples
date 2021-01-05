@@ -15,9 +15,6 @@
 ARG FROM_IMAGE_NAME=nvcr.io/nvidia/pytorch:20.06-py3
 FROM ${FROM_IMAGE_NAME}
 
-ENV http_proxy=http://172.19.57.45:3128
-ENV https_proxy=http://172.19.57.45:3128
-
 WORKDIR /workspace
 #RUN git clone https://github.com/NVIDIA/apex \
 # && cd apex \
