@@ -1,4 +1,4 @@
-export CUDA_VISIBLE_DEVICES=1
+# export CUDA_VISIBLE_DEVICES=1
 
 RESULTS_DIR='/results'
 CHECKPOINTS_DIR='/results/checkpoints'
