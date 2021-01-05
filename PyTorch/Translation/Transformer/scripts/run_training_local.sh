@@ -28,6 +28,7 @@ NUM_EPOCHS=${5:-1}
 BATCH_SIZE=${6:-2560}
 NUM_GPU=${7:-1}
 : ${USE_SLURM:=0}
+WORLD_SIZE=${8:-1}
 
 DISTRIBUTED="-m torch.distributed.launch --nproc_per_node=${NUM_GPU}"
 [ ${USE_SLURM} = 1 ] && DISTRIBUTED+=" --nnodes ${WORLD_SIZE} --node_rank ${SLURM_NODEID}  \
