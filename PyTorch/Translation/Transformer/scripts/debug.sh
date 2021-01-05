@@ -22,14 +22,12 @@ python /workspace/translation/train.py \
   --weight-decay 0.0 \
   --criterion label_smoothed_cross_entropy \
   --label-smoothing 0.1 \
-  --max-tokens 2560 \
+  --max-tokens 5120 \
   --seed 1 \
   --max-epoch 1 \
-  --no-epoch-checkpoints \
   --fuse-layer-norm \
   --amp \
   --amp-level O1 \
-  --online-eval \
   --log-interval 500 \
   --save-dir ${RESULTS_DIR} \
   --stat-file ${STAT_FILE} \
