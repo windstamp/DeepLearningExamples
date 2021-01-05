@@ -25,4 +25,6 @@ python /workspace/translation/train.py \
     --max-tokens 2560 \
     --seed 1 \
     --fuse-layer-norm \
-    --save-dir ./checkpoints
+    --log-interval 500 \
+    --save-dir ${CHECKPOINTS_DIR} \
+    --stat-file ${STAT_FILE} \
