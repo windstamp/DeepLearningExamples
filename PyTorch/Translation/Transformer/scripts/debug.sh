@@ -24,6 +24,7 @@ python /workspace/translation/train.py \
     --label-smoothing 0.1 \
     --max-tokens 2560 \
     --seed 1 \
+    --max-epoch 1 \
     --fuse-layer-norm \
     --log-interval 500 \
     --save-dir ${CHECKPOINTS_DIR} \
