@@ -16,7 +16,7 @@ python /workspace/translation/train.py \
   --lr-scheduler inverse_sqrt \
   --warmup-init-lr 0.0 \
   --warmup-updates 4000 \
-  --lr 0.000846 \
+  --lr 0.0006 \
   --min-lr 0.0 \
   --dropout 0.1 \
   --weight-decay 0.0 \
