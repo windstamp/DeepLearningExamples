@@ -5,7 +5,18 @@ CHECKPOINTS_DIR='/results/checkpoints'
 STAT_FILE=${RESULTS_DIR}/run_log.json
 mkdir -p $CHECKPOINTS_DIR
 
-python /workspace/translation/train.py \
+# nsys profile -t cuda \
+#   -y 60 \
+#   -d 20 \
+#   -o transformer_baseline \
+#   -f true \
+#   -w true \
+
+
+nsys profile --stats=true -t cuda,nvtx \
+  -o transformer_baseline \
+  -f true \
+  python /workspace/translation/train.py \
   /data/wmt14_en_de_joined_dict \
   --arch transformer_wmt_en_de_big_t2t \
   --share-all-embeddings \
@@ -25,6 +36,7 @@ python /workspace/translation/train.py \
   --max-tokens 5120 \
   --seed 1 \
   --max-epoch 1 \
+  --no-epoch-checkpoints \
   --fuse-layer-norm \
   --amp \
   --amp-level O2 \

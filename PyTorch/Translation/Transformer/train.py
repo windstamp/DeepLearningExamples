@@ -42,6 +42,19 @@ import sacrebleu
 import dllogger as DLLogger
 from fairseq.log_helper import AggregatorBackend, setup_logger
 
+_cudart = ctypes.CDLL('libcudart.so')
+
+def cu_prof_start():
+  ret = _cudart.cudaProfilerStart()
+  if ret != 0:
+    raise Exception('cudaProfilerStart() returned %d' % ret)
+
+
+def cu_prof_stop():
+  ret = _cudart.cudaProfilerStop()
+  if ret != 0:
+    raise Exception('cudaProfilerStop() returned %d' % ret)
+
 def main(args):
 
     print(args)
@@ -194,6 +207,11 @@ def train(args, trainer, datasets, epoch_itr):
     trainer.get_throughput_meter().reset()
 
     for i, sample in enumerate(itr):
+        if i == 100:
+            cu_prof_start()
+        if i == 110:
+            cu_prof_stop()
+            return
 
         if i < num_batches - 1 and (i + 1) % update_freq > 0:
             # buffer updates according to --update-freq
