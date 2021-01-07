@@ -40,6 +40,6 @@ nsys profile --stats=true -t cuda,nvtx \
   --fuse-layer-norm \
   --amp \
   --amp-level O2 \
-  --log-interval 500 \
+  --log-interval 10 \
   --save-dir ${RESULTS_DIR} \
   --stat-file ${STAT_FILE} \
