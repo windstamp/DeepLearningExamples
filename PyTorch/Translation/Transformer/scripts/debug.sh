@@ -13,9 +13,9 @@ mkdir -p $CHECKPOINTS_DIR
 #   -w true \
 
 
-nsys profile --stats=true -t cuda,nvtx \
-  -o transformer_baseline \
-  -f true \
+# nsys profile --stats=true -t cuda,nvtx \
+#   -o transformer_baseline \
+#   -f true \
   python /workspace/translation/train.py \
   /data/wmt14_en_de_joined_dict \
   --arch transformer_wmt_en_de_big_t2t \
