@@ -207,11 +207,11 @@ def train(args, trainer, datasets, epoch_itr):
     trainer.get_throughput_meter().reset()
 
     for i, sample in enumerate(itr):
-        if i == 100:
-            cu_prof_start()
-        if i == 110:
-            cu_prof_stop()
-            return
+        # if i == 100:
+        #     cu_prof_start()
+        # if i == 110:
+        #     cu_prof_stop()
+        #     return
 
         if i < num_batches - 1 and (i + 1) % update_freq > 0:
             # buffer updates according to --update-freq
