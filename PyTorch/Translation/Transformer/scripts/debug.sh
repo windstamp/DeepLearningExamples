@@ -26,6 +26,6 @@ python /workspace/translation/train.py \
     --seed 1 \
     --max-epoch 1 \
     --fuse-layer-norm \
-    --log-interval 500 \
+    --log-interval 10 \
     --save-dir ${CHECKPOINTS_DIR} \
     --stat-file ${STAT_FILE} \
